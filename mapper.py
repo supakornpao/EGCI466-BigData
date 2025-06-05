@@ -1,11 +1,8 @@
-#!/usr/bin/env python3
-import sys
+
 import csv
 
-reader = csv.reader(sys.stdin)
-for row in reader:
-    try:
-        print(f"{row[2]}\t")
-    except IndexError:
-        continue
+with open('spotify-data.csv', newline='') as csvfile:
+    reader = csv.DictReader(csvfile)
+    for row in reader:
+        print(f"{row['artists']}\t")
 #artists: index 2
